@@ -5,10 +5,10 @@ export default function TodoList() {
   const list = useTodoStore((state) => state.todos);
 
   return (
-    <div>
+    <ul>
       {list.map((todo) => (
-        <div key={todo.id}>{todo.text}</div>
+        <li key={todo.id}>{todo.text}</li>
       ))}
-    </div>
+    </ul>
   );
 }
