@@ -1,0 +1,74 @@
+# Zustand - State Management for React
+
+---
+
+## 1. Name & Purpose
+
+### What does "Zustand" mean?
+
+The word *Zustand* is German and directly translates to *state* in English.
+
+> "Zustand" = "State" (in German)
+
+The library was intentionally given a German name by its creators — this makes it stand out from other libraries like Redux, Jotai, or Context API.
+
+---
+
+### Why is it called "Zustand"?
+
+- It's short and memorable.
+- It adds uniqueness and identity to the project.
+- It's a little open-source humor — using a non-English name in a global developer community.
+- It fits perfectly because *Zustand* is all about managing *state*.
+
+---
+
+### Purpose of Zustand
+
+Zustand is a small, fast, and scalable state management solution for React applications.  
+
+Its main goal is to provide global state management with minimal code, great simplicity, and no extra boilerplate.
+
+---
+
+### Official Motto
+
+> "Bear necessities for state management."
+
+(That's why Zustand’s logo is a bear 🐻)
+
+---
+
+### Core Advantages
+
+- Global state with a simple hook.
+- No need for Context Providers.
+- Very little setup required.
+- Built-in support for persistence, middleware, and devtools.
+- Suitable for small and large projects.
+
+---
+
+## 2. Structure & Concept
+
+### Zustand revolves around a central *store*:
+
+The store usually contains:
+
+- *State* → The data.
+- *Actions* → Functions to modify the data.
+- *create()* → Function from Zustand to build the store.
+- *Hooks* → To access the store inside React components.
+
+---
+
+### Basic Example of a Store:
+
+```jsx
+import { create } from 'zustand'
+
+const useCounterStore = create((set) => ({
+  count: 0,                               // State
+  increase: () => set((state) => ({ count: state.count + 1 })), // Action
+  decrease: () => set((state) => ({ count: state.count - 1 })), // Action
+}));
