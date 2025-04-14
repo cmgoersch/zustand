@@ -1,14 +1,27 @@
-import React from "react";
-import { useTodoStore } from "../zustand";
+import { useTodoStore } from "../zustand.js";
 
-export default function TodoList() {
-  const list = useTodoStore((state) => state.todos);
+const TodoList = () => {
+  const todos = useTodoStore((state) => state.todos);
+  // toggle State
+  const toggleDone = useTodoStore((state) => state.toggleDone);
 
   return (
     <ul>
-      {list.map((todo) => (
-        <li key={todo.id}>{todo.text}</li>
+      {todos.map((todo) => (
+        <li
+          key={todo.id}
+          // toggle
+          onClick={() => toggleDone(todo.id)}
+          style={{
+            textDecoration: todo.done ? "line-through" : "none",
+            cursor: "pointer",
+          }}
+        >
+          {todo.text}
+        </li>
       ))}
     </ul>
   );
-}
+};
+
+export default TodoList;
